@@ -1,4 +1,5 @@
-# 🎙️ VoxSim – Zero‑Loss Multi‑Agent Sentiment Simulator
+# Introducing
+# VoxSim Predict Research AI (Vox Populi Simulation) – Multi‑Agent Sentiment Simulator by Shrl.py
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Transformers](https://img.shields.io/badge/🤗-Transformers-yellow)](https://huggingface.co/docs/transformers/index)
@@ -28,7 +29,12 @@
   - Upload file (`.txt`, `.pdf`, `.docx`)
 - **Optimised for Colab** – 4‑bit quantisation, memory‑efficient chunking
 
----
+# 🧠 Model & Performance
+- Base model: Qwen/Qwen2.5-3B-Instruct (3B parameters)
+- Quantisation: 4‑bit NF4 → ~1.5 GB GPU memory
+- Context length: 32,768 tokens
+- Runtime: T4 GPU (Colab free tier)
+- Speed: ~2‑3 minutes for 80k characters (3 chunks)
 
 ## 🖼️ Example Output
 
@@ -36,15 +42,13 @@
 |------------|-------------------|
 | *Professional report with structured sections* | *Directed graph showing who supports/opposes whom* |
 
-*(Add screenshots of your actual output here)*
-
 ---
 
 ## 🚀 Quick Start (Google Colab)
 
 Click the badge below to open the notebook:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/yourusername/VoxSim/blob/main/VoxSim.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sahruldev/VoxSim/blob/main/VoxSim.ipynb)
 
 Or run locally:
 
@@ -53,3 +57,25 @@ git clone https://github.com/yourusername/VoxSim.git
 cd VoxSim
 pip install -r requirements.txt
 python voxsim.py
+
+# 📖 How It Works
+1. Document ingestion – user provides text, URL, or file.
+2. Chunking – split into 30k token chunks (max 32k for Qwen2.5‑3B).
+3. Agent creation – LLM generates 3 personas based on the issue.
+4. Chunk‑wise processing (zero loss):
+    - Each chunk is fed to all 3 agents → one opinion per agent.
+    - Simulated debate: agents respond to each other, labelling support/oppose.
+5. Aggregation – opinions from all chunks are merged (no summarisation). Edge direction decided by majority vote.
+6. Report generation – structured PDF report + Matplotlib graph.
+
+Why zero loss?
+Traditional methods summarise chunks progressively, losing detail. VoxSim never summarises – it stores every raw opinion and edge from every chunk, then combines them. Every original character influences the final result.
+
+# 📜 License
+MIT © Shrl.py – free for academic and commercial use.
+
+# ⭐ Show Your Support
+If VoxSim helps your research or project, please star this repository – it motivates further development!
+
+# ❤️ Thank You
+@huggingface | @GoogleColab | @Qwen_LLM
