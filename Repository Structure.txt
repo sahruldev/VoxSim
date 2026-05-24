@@ -1,0 +1,8 @@
+VoxSim/
+├── voxsim.py              # Main script (full code)
+├── VoxSim.ipynb           # Colab notebook (same as .py)
+├── requirements.txt       # Dependencies
+├── examples/              # Sample documents & outputs
+│   ├── sample_news.txt
+│   └── sample_report.pdf
+└── README.md
