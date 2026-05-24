@@ -29,11 +29,11 @@
   - Upload file (`.txt`, `.pdf`, `.docx`)
 - **Optimised for Colab** – 4‑bit quantisation, memory‑efficient chunking
 
-# 🧠 Model & Performance
+# 🧠 Model AI & Performance
 - Base model: Qwen/Qwen2.5-3B-Instruct (3B parameters)
 - Quantisation: 4‑bit NF4 → ~1.5 GB GPU memory
 - Context length: 32,768 tokens
-- Runtime: T4 GPU (Colab free tier)
+- Runtime: T4 GPU (Runtime Google Colab free tier)
 - Speed: ~2‑3 minutes for 80k characters (3 chunks)
 
 ## 🖼️ Example Output
@@ -53,7 +53,7 @@ Click the badge below to open the notebook:
 Or run locally:
 
 ```bash
-git clone https://github.com/yourusername/VoxSim.git
+git clone https://github.com/sahruldev/VoxSim.git
 cd VoxSim
 pip install -r requirements.txt
 python voxsim.py
@@ -72,7 +72,7 @@ Why zero loss?
 Traditional methods summarise chunks progressively, losing detail. VoxSim never summarises – it stores every raw opinion and edge from every chunk, then combines them. Every original character influences the final result.
 
 # 📜 License
-MIT © Shrl.py – free for academic and commercial use.
+MIT ©2026 Shrl.py – free for academic and commercial use.
 
 # ⭐ Show Your Support
 If VoxSim helps your research or project, please star this repository – it motivates further development!
